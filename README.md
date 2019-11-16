@@ -4,6 +4,31 @@ Example of application of genetic algorithm for evolution kart navigation. Proje
 
 ## Kart Game
 
+Racing game developed at Unity 2019.2.5
+
+<p align="center">
+  <img src="/Images/track.PNG" width="600"/>
+</p>
+
+To create the track, we used 3 tiles created with ProBuilder
+
+<p align="center">
+  <img src="/Images/tiles.PNG" width="600"/>
+</p>
+
+A small kart was also modeled in ProBuilder for simulation
+
+<p align="center">
+  <img src="/Images/kart.PNG" width="600"/>
+</p>
+
+
+Kart with sensors
+
+<p align="center">
+  <img src="/Images/scene.PNG" width="600"/>
+</p>
+
 
 ## Genetic Algorithm (GA)
 
