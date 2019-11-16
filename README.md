@@ -22,13 +22,15 @@ A small kart was also modeled in ProBuilder for simulation
   <img src="https://github.com/kleberandrade/genetic-algorithm-kart-unity/blob/master/Images/kart.png" width="600"/>
 </p>
 
-
 Kart with sensors
 
 <p align="center">
   <img src="https://github.com/kleberandrade/genetic-algorithm-kart-unity/blob/master/Images/scene.png" width="600"/>
 </p>
 
+Manual kart control
+
+[![](http://img.youtube.com/vi/817ASsU_61w/0.jpg)](http://www.youtube.com/watch?v=817ASsU_61w "")
 
 ## Genetic Algorithm (GA)
 
