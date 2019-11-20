@@ -28,10 +28,6 @@ Kart with sensors
   <img src="Images/scene.png" width="600"/>
 </p>
 
-Manual kart control
-
-[![](http://img.youtube.com/vi/817ASsU_61w/0.jpg)](http://www.youtube.com/watch?v=817ASsU_61w "")
-
 ## Genetic Algorithm (GA)
 
 ### Implementation
@@ -74,6 +70,8 @@ In a uniform crossover, we don’t divide the chromosome into segments, rather w
 Random Resetting is an extension of the bit flip for the integer representation. In this, a random value from the set of permissible values is assigned to a randomly chosen gene.
 
 ## Experiments and Results
+
+Manual kart control: http://www.youtube.com/watch?v=817ASsU_61w
 
 Initial setup of the first experiment
 
