@@ -7,25 +7,25 @@ Example of application of genetic algorithm for evolution kart navigation. Proje
 Racing game developed at Unity 2019.2.5
 
 <p align="center">
-  <img src="https://github.com/kleberandrade/genetic-algorithm-kart-unity/blob/master/Images/track.png" width="600"/>
+  <img src="Images/track.png" width="600"/>
 </p>
 
 To create the track, we used 3 tiles created with ProBuilder
 
 <p align="center">
-  <img src="https://github.com/kleberandrade/genetic-algorithm-kart-unity/blob/master/Images/tiles.png" width="600"/>
+  <img src="Images/tiles.png" width="600"/>
 </p>
 
 A small kart was also modeled in ProBuilder for simulation
 
 <p align="center">
-  <img src="https://github.com/kleberandrade/genetic-algorithm-kart-unity/blob/master/Images/kart.png" width="600"/>
+  <img src="Images/kart.png" width="600"/>
 </p>
 
 Kart with sensors
 
 <p align="center">
-  <img src="https://github.com/kleberandrade/genetic-algorithm-kart-unity/blob/master/Images/scene.png" width="600"/>
+  <img src="Images/scene.png" width="600"/>
 </p>
 
 Manual kart control

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CarKinematics : MonoBehaviour
-{
-    [Header("Player Controller")]
-    public string m_HorizontalAxisName = "Horizontal";
-    public string m_VerticalAxisName = "Vertical";
-    public string m_BrakeButtonName = "Jump";
+{    
+    public float HorizontalInput { get; set; }
+    public float VerticalInput { get; set; }
+    public bool BrakeInput { get; set; }
 
     [Header("Wheel Colliders")]
     public WheelCollider m_WheelColliderFL;
@@ -45,22 +41,24 @@ public class CarKinematics : MonoBehaviour
     public bool IsReverse => m_WheelColliderRL.rpm < 0.0f && m_WheelColliderRR.rpm < 0.0f;
 
     private Rigidbody m_Body;
-    private float m_HorizontalInput;
-    private float m_VerticalInput;
-    private bool m_BrakeInput;
+    public bool Disable 
+    {
+        get { return m_Body.isKinematic; }
+        set { m_Body.isKinematic = value; }
+    }
 
-    private void Start() {
+    private void Awake()
+    {
         m_Body = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
         m_Body.centerOfMass = m_CenterOfGravity.localPosition;
     }
 
-    private void Update() {
-        m_HorizontalInput = Input.GetAxis(m_HorizontalAxisName);
-        m_VerticalInput = Input.GetAxis(m_VerticalAxisName);
-        m_BrakeInput = Input.GetButton(m_BrakeButtonName);
-    }
-
-    private void FixedUpdate(){
+    private void FixedUpdate()
+    {
         Steering();
         Accelerate();
         Braking();
@@ -74,15 +72,15 @@ public class CarKinematics : MonoBehaviour
         if (m_UseStabilityCurves)
         {
             float speedFactor = GetSpeed() / m_MaxSpeedToSteerAngle;
-            steerAngle = Mathf.Lerp(m_MaxSteerAngle, m_MinSteerAngle, speedFactor) * m_HorizontalInput;
+            steerAngle = Mathf.Lerp(m_MaxSteerAngle, m_MinSteerAngle, speedFactor) * HorizontalInput;
         }
         else
         {
-            steerAngle = m_MaxSteerAngle * m_HorizontalInput;
+            steerAngle = m_MaxSteerAngle * HorizontalInput;
         }
 
         m_WheelColliderFL.steerAngle = Mathf.Lerp(m_WheelColliderFL.steerAngle, steerAngle, Time.deltaTime * m_SmoothSteeringAngle);
-        m_WheelColliderFR.steerAngle = Mathf.Lerp(m_WheelColliderFR.steerAngle,steerAngle, Time.deltaTime * m_SmoothSteeringAngle);
+        m_WheelColliderFR.steerAngle = Mathf.Lerp(m_WheelColliderFR.steerAngle, steerAngle, Time.deltaTime * m_SmoothSteeringAngle);
     }
 
     public float GetSpeed()
@@ -112,8 +110,8 @@ public class CarKinematics : MonoBehaviour
 
     private void Decelerate()
     {
-        float motorTorque = m_VerticalInput * m_MaxDecelerationForce;
-        if (motorTorque == 0.0f && !m_BrakeInput)
+        float motorTorque = VerticalInput * m_MaxDecelerationForce;
+        if (motorTorque == 0.0f && !BrakeInput)
         {
             m_WheelColliderFL.brakeTorque = motorTorque;
             m_WheelColliderFR.brakeTorque = motorTorque;
@@ -124,7 +122,7 @@ public class CarKinematics : MonoBehaviour
 
     private void Braking()
     {
-        float brakeTorque = m_BrakeInput ? m_BrakeForce : 0.0f;
+        float brakeTorque = BrakeInput ? m_BrakeForce : 0.0f;
         m_WheelColliderFL.brakeTorque = brakeTorque;
         m_WheelColliderFR.brakeTorque = brakeTorque;
         m_WheelColliderRL.brakeTorque = brakeTorque;
@@ -133,9 +131,9 @@ public class CarKinematics : MonoBehaviour
 
     private void Accelerate()
     {
-        float motorTorque = m_VerticalInput > 0.0f ?
-                            m_VerticalInput * m_MaxMotorTorque :
-                            m_VerticalInput * m_MaxReverseTorque;
+        float motorTorque = VerticalInput > 0.0f ?
+                            VerticalInput * m_MaxMotorTorque :
+                            VerticalInput * m_MaxReverseTorque;
 
         m_WheelColliderFL.motorTorque = m_DriveMode == DriveMode.Rear ? 0.0f : motorTorque;
         m_WheelColliderFR.motorTorque = m_DriveMode == DriveMode.Rear ? 0.0f : motorTorque;
