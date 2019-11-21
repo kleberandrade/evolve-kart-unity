@@ -112,6 +112,10 @@ AG Kart Control: https://www.youtube.com/watch?v=60FV5vpZYPQ
   <img src="Images/result.jpg" width="700"/>
 </p>
 
+## Acknowledgment
+
+Thanks to Professor Fernando Osorio for the ideas of the evolution strategy
+
 ## References
 
 *   **ANDRADE, KLEBER O.**; JOAQUIM, RICARDO C. ; CAURIN, GLAUCO A. P. ; CROCOMO, MARCIO K. . Evolutionary Algorithms for a Better Gaming Experience in Rehabilitation Robotics. COMPUTERS IN ENTERTAINMENT, v. 16, p. 1-15, 2018.
