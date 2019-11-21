@@ -6,9 +6,7 @@ public static class GeneticOperator
     private static float MUTATION_PROBABILITY = 0.05f;
     private static float CROSSOVER_PROBABILITY = 0.5f;
     private static int TOURNAMENT_SELECTION_SIZE = 3;
-
     private static float ALPHA = 0.2f;
-
     public static int ELITISM_NUMBER = 10;
 
     public static List<Genome> Elitism(List<Genome> genomes)
@@ -29,9 +27,9 @@ public static class GeneticOperator
         {
             if (Helper.Next(1.0f) < rate * (i + 1))
             {
-                genome[i].Horizontal = Helper.Next(Gene.MIN_ACTION_VALUE, Gene.MAX_ACTION_VALUE);
-                genome[i].Vertical = Helper.Next(Gene.MIN_ACTION_VALUE, Gene.MAX_ACTION_VALUE);
-                genome[i].Duration = Helper.Next(Gene.MIN_ACTION_DURATION, Gene.MAX_ACTION_DURATION);
+                genome[i].Horizontal = Helper.Next(Gene.MIN_HORIZONTAL, Gene.MAX_HORIZONTAL);
+                genome[i].Vertical = Helper.Next(Gene.MIN_VERTICAL, Gene.MAX_VERTICAL);
+                genome[i].Duration = Helper.Next(Gene.MIN_DURATION, Gene.MAX_DURATION);
             }
         }
     }
